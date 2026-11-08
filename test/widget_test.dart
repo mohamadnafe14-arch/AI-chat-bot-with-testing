@@ -11,20 +11,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ai_chat_bot_with_testing/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('shows a static chat screen', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('ChatGPT'), findsOneWidget);
+    expect(find.text('AI Assistant'), findsOneWidget);
+    expect(
+      find.text('Can you explain how artificial intelligence works?'),
+      findsOneWidget,
+    );
+    expect(find.text('Message ChatGPT...'), findsOneWidget);
+    expect(find.byType(TextField), findsNothing);
   });
 }

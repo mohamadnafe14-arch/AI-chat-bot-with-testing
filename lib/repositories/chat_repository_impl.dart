@@ -3,12 +3,12 @@ import '../services/chat_service.dart';
 import 'chat_repository.dart';
 
 class ChatRepositoryImpl implements ChatRepository {
-  const ChatRepositoryImpl({required this._chatService});
+  const ChatRepositoryImpl({required this.chatService});
 
-  final ChatService _chatService;
+  final ChatService chatService;
 
   @override
   Future<Message> sendMessage(List<Message> messages) {
-    return _chatService.sendMessages(messages);
+    return chatService.sendMessages(messages);
   }
 }
